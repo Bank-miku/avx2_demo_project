@@ -117,40 +117,40 @@ int main(){
 
 
     //normal multiple
-    int *D = (int*)calloc(2*size -1 , sizeof(int));
-    start_1 = clock();
-    for (int i = 0; i < size; i++)
-    {
-        for (int j = 0; j < size; j++)
-        {
-            D[i+j] += A[i]*B[j];
-        }
-    }
-    end_1 = clock();
-    //clock time
-    printf("use normal function     = %0.20f\n",((double) (end_1 - start_1)) / CLOCKS_PER_SEC);
+    // int *D = (int*)calloc(2*size -1 , sizeof(int));
+    // start_1 = clock();
+    // for (int i = 0; i < size; i++)
+    // {
+    //     for (int j = 0; j < size; j++)
+    //     {
+    //         D[i+j] += A[i]*B[j];
+    //     }
+    // }
+    // end_1 = clock();
+    // //clock time
+    // printf("use normal function     = %0.20f\n",((double) (end_1 - start_1)) / CLOCKS_PER_SEC);
 
-    printf("\n------------------------------------------------------------\n");
+    // printf("\n------------------------------------------------------------\n");
 
-    // print result
-    printf("        toom-cook4             normal           \n");
-    for (int i = 0; i < (2*size); i++)
-    {
-        printf("C[%5d] = %10d , = ",i,C[i]); print_binary16(C[i],16);
-        printf("D[%5d] = %10d , = ",i,D[i] & (uint16_t)n-1); print_binary16(D[i]&(uint16_t)n-1,16);
-    }
+    // // print result
+    // printf("        toom-cook4             normal           \n");
+    // for (int i = 0; i < (2*size); i++)
+    // {
+    //     printf("C[%5d] = %10d , = ",i,C[i]); print_binary16(C[i],16);
+    //     printf("D[%5d] = %10d , = ",i,D[i] & (uint16_t)n-1); print_binary16(D[i]&(uint16_t)n-1,16);
+    // }
 
     
-    //print check C == D yes or no
-    for (int i = 0; i < (2*size)-1; i++)
-    {
-        if (C[i] != (D[i] & (uint16_t)n-1))
-        {
-            printf("C != D\n");
-            printf("i = %d\n",i);
-            break;
-        }
-    }
+    // //print check C == D yes or no
+    // for (int i = 0; i < (2*size)-1; i++)
+    // {
+    //     if (C[i] != (D[i] & (uint16_t)n-1))
+    //     {
+    //         printf("C != D\n");
+    //         printf("i = %d\n",i);
+    //         break;
+    //     }
+    // }
 
     
     
@@ -158,7 +158,7 @@ int main(){
     free(A);
     free(B);
     free(C);
-    free(D);    
+    // free(D);    
 
     return 0;
 }
